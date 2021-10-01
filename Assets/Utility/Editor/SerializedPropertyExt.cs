@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ namespace Fizz6
     {
         private const char SpaceDelimiter = ' ';
         private const char PathDelimiter = '.';
-        private const string ArrayIdentifier = "Array.Data";
+        private static readonly Regex ArrayRegex = new Regex(@"([^\.]*?)\.Array\.data\[(\d+)\]");
         
         public static string GetManagedReferenceFieldFullTypeName(this SerializedProperty serializedProperty)
         {
@@ -53,30 +54,31 @@ namespace Fizz6
             return GetValue(serializedProperty.serializedObject.targetObject, serializedProperty.propertyPath);
         }
         
-        // TODO: Clean up this function...
-        
         private static object GetValue(object target, string path)
         {
-            var elements = path
-                .Replace($".{ArrayIdentifier}[", "[")
-                .Split('.');
-            
             var value = target;
             
-            foreach (var element in elements)
+            var elements = ArrayRegex.Split(path);
+            for (var count = 0; count < elements.Length; ++count)
             {
-                if (element.Contains("["))
+                var element = elements[count];
+                switch (count % 3)
                 {
-                    var elementName = element.Substring(0, element.IndexOf("["));
-                    var index = System.Convert.ToInt32(element.Substring(element.IndexOf("[")).Replace("[", "").Replace("]", ""));
-                    value = GetArrayValueInternal(value, elementName, index);
-                }
-                else
-                {
-                    value = GetValueInternal(value, element);
+                    case 0:
+                        var names = element.Split(PathDelimiter);
+                        value = names.Aggregate(value, GetValueInternal);
+                        break;
+                    case 1:
+                        var name = element;
+                        var index = System.Convert.ToInt32(elements[++count]);
+                        value = GetArrayValueInternal(value, name, index);
+                        break;
+                    case 2:
+                        Debug.LogError("Invalid");
+                        break;
                 }
             }
-            
+
             return value;
         }
 

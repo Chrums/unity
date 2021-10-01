@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEditor;
-using UnityEngine;
+﻿using UnityEditor;
 
 namespace Fizz6
 {
-    [CustomEditor(typeof(Actor))]
+    [CustomEditor(typeof(Actor), true)]
     public class ActorEditor : Editor
     {
         private CustomEditorUtility.SerializedObjectEditor _serializedObjectEditor;

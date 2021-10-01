@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,7 +8,9 @@ namespace Fizz6
     [CustomPropertyDrawer(typeof(ImplementationAttribute))]
     public class ImplementationAttributePropertyDrawer : PropertyDrawer
     {
-        
+        private static readonly GUIStyle ButtonStyle = GUI.skin.FindStyle("IconButton") ?? EditorGUIUtility.GetBuiltinSkin(EditorSkin.Inspector).FindStyle("IconButton");
+        private static readonly GUIContent ButtonContent = new GUIContent(EditorGUIUtility.Load("icons/d_Settings.png") as Texture2D, "Configure");
+
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             // base.OnGUI(position, property, label);
@@ -48,14 +49,10 @@ namespace Fizz6
                     property.managedReferenceValue = index >= 0
                         ? Activator.CreateInstance(changeType) 
                         : null;
-                    
-                    Undo.RecordObject(property.serializedObject.targetObject, "Serialized Property Modification");
-                    EditorUtility.SetDirty(property.serializedObject.targetObject);
-                    property.serializedObject.ApplyModifiedProperties();
                 }
             }
 
-            if (GUI.Button(buttonPosition, new GUIContent()))
+            if (GUI.Button(buttonPosition, ButtonContent, ButtonStyle))
             {
                 SerializedPropertyWindow.For(property);
             }

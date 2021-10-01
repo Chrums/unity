@@ -5,22 +5,22 @@ namespace Fizz6
     public class AutofillTest : MonoBehaviour
     {
         [SerializeField, Autofill]
-        private Transform _selfTransform;
+        private Transform selfTransform;
         
         [SerializeField, Autofill(AutofillAttribute.Target.Parent)]
-        private Transform _parentTransform;
+        private Transform parentTransform;
         
         [SerializeField, Autofill(AutofillAttribute.Target.Children)]
-        private Transform _childTransform;
+        private Transform childTransform;
         
         [SerializeField, Autofill(AutofillAttribute.Target.Self | AutofillAttribute.Target.Parent | AutofillAttribute.Target.Children)]
-        private Transform[] _allTransforms;
+        private Transform[] allTransforms;
         
         [SerializeField, Autofill(AutofillAttribute.Target.Parent)]
-        private Transform[] _parentTransforms;
+        private Transform[] parentTransforms;
         
         [SerializeField, Autofill(AutofillAttribute.Target.Children)]
-        private Transform[] _childTransforms;
+        private Transform[] childTransforms;
 
     }
 }

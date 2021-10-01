@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
-using UnityEditorInternal;
+﻿using UnityEditor;
 using Object = UnityEngine.Object;
 
 namespace Fizz6
@@ -28,6 +24,8 @@ namespace Fizz6
         protected void OnGUI()
         {
             if (_serializedProperty == null) return;
+
+            _serializedProperty.serializedObject.Update();
             
             using (new EditorGUILayout.VerticalScope("box"))
             {
@@ -51,6 +49,8 @@ namespace Fizz6
             {
                 _serializedPropertyEditor.Render();
             }
+
+            _serializedProperty.serializedObject.ApplyModifiedProperties();
         }
     }
 }

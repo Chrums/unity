@@ -15,7 +15,7 @@ namespace Fizz6
             
             do
             {
-                yield return iterator;
+                yield return iterator.Copy();
             }
             while (iterator.NextVisible(enterChildren: false));
         }
