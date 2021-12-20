@@ -26,19 +26,9 @@ namespace Fizz6
     public class SingletonMonoBehaviour<T> : SingletonMonoBehaviour where T : SingletonMonoBehaviour<T>
     {
         private static T _instance;
-
-        public static T Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = SingletonGameObject.AddComponent<T>();
-                }
-
-                return _instance;
-            }
-        }
+        public static T Instance => _instance == null
+            ? _instance = SingletonGameObject.AddComponent<T>()
+            : _instance;
 
         protected virtual void OnDestroy()
         {

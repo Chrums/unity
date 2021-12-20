@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Fizz6
+﻿namespace Fizz6.Actor
 {
     public interface IBehaviour
     {

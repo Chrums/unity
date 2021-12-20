@@ -17,7 +17,7 @@ namespace Fizz6
             var gameObject = component.gameObject;
             var autofillAttribute = attribute as AutofillAttribute;
             
-            AutofillManager.Autofill(gameObject, component, fieldInfo, autofillAttribute);
+            AutofillManager.Autofill(gameObject, component, fieldInfo, autofillAttribute, property);
 
             if (!fieldInfo.FieldType.IsArray)
             {

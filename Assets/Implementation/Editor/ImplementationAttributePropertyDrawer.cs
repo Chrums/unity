@@ -34,7 +34,7 @@ namespace Fizz6
             
             var assignableTypes = type.GetAssignableTypes();
             var assignableTypeNames = assignableTypes
-                .Select(assignableType => assignableType.FullName)
+                .Select(assignableType => assignableType.FullName?.Replace("+", "/"))
                 .ToArray();
 
             var managedReferenceFullTypeName = property.GetManagedReferenceFullTypeName();

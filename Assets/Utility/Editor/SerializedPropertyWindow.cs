@@ -13,12 +13,12 @@ namespace Fizz6
         }
 
         private SerializedProperty _serializedProperty;
-        private CustomEditorUtility.SerializedPropertyEditor _serializedPropertyEditor;
+        private SerializedPropertyEditor _serializedPropertyEditor;
 
         private void Initialize(SerializedProperty serializedProperty)
         {
             _serializedProperty = serializedProperty;
-            _serializedPropertyEditor = new CustomEditorUtility.SerializedPropertyEditor(_serializedProperty);
+            _serializedPropertyEditor = new SerializedPropertyEditor(_serializedProperty);
         }
         
         protected void OnGUI()
