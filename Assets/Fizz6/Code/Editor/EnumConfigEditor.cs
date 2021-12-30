@@ -1,9 +1,8 @@
-﻿using System;
-using System.Threading;
+﻿using Fizz6.Utility.Editor;
 using UnityEditor;
 using UnityEngine;
 
-namespace Fizz6.Code
+namespace Fizz6.Code.Editor
 {
     [CustomEditor(typeof(EnumConfig), true)]
     public class EnumConfigEditor : FizzEditor

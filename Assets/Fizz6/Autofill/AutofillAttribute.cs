@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Fizz6
+namespace Fizz6.Autofill
 {
     public class AutofillAttribute : PropertyAttribute
     {

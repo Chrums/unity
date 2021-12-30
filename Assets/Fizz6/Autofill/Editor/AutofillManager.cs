@@ -7,7 +7,7 @@ using UnityEditor.Experimental.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Fizz6
+namespace Fizz6.Autofill.Editor
 {
     [InitializeOnLoad]
     public static class AutofillManager

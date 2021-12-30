@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Fizz6
+namespace Fizz6.Scheduler
 {
     public class Scheduler : SingletonMonoBehaviour<Scheduler>
     {

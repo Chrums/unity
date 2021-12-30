@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60842a38171832a40a2680cf400a829a, type: 3}
   m_Name: InputTypeConfig
   m_EditorClassIdentifier: 
-  path: Input
+  path: Fizz6/Input
   namespaceName: Fizz6.Input
   enumAccessibility: 0
   enumName: InputType
   enumValueNames:
   - Horizontal
   - Vertical
-  - Testing

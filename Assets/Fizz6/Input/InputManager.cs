@@ -9,10 +9,10 @@ namespace Fizz6.Input
 
         private void Awake()
         {
-            foreach (var item in InputConfig.Instance.Items)
-            {
-                _sources[item.InputType] = item.Source;
-            }
+            // foreach (var item in InputConfig.Instance.Items)
+            // {
+            //     _sources[item.InputType] = item.Source;
+            // }
         }
 
         private void Update()

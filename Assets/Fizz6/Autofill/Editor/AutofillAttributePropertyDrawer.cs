@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Fizz6
+namespace Fizz6.Autofill.Editor
 {
     [CustomPropertyDrawer(typeof(AutofillAttribute))]
     public class AutofillAttributePropertyDrawer : PropertyDrawer

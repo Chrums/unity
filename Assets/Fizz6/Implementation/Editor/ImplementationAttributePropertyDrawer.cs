@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace Fizz6
+namespace Fizz6.Implementation.Editor
 {
     [CustomPropertyDrawer(typeof(ImplementationAttribute))]
     public class ImplementationAttributePropertyDrawer : PropertyDrawer
