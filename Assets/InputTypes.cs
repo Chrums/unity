@@ -1,5 +1,0 @@
-enum InputTypes
-{
-    Jump,
-    Action,
-}

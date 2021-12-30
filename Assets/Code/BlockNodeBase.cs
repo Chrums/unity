@@ -19,10 +19,7 @@ namespace Fizz6.Code
 
         public override string Generate()
         {
-            if (Statement != null)
-            {
-                _stringBuilder.AppendLine(Statement);
-            }
+            if (Statement != null) _stringBuilder.AppendLine(Statement);
             
             _stringBuilder.AppendLine(BlockOpen);
 

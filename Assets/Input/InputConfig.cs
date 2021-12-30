@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Fizz6.Input
 {
     [CreateAssetMenu(fileName = "InputConfig", menuName = "Fizz6/Input/Config", order = 1)]
-    public class InputConfig : SingletonScriptableObject<InputConfig>
+    public class InputConfig : ScriptableObject
     {
         [Serializable]
         public struct Item

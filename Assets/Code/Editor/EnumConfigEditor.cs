@@ -1,4 +1,6 @@
-﻿using UnityEditor;
+﻿using System;
+using System.Threading;
+using UnityEditor;
 using UnityEngine;
 
 namespace Fizz6.Code
@@ -6,31 +8,48 @@ namespace Fizz6.Code
     [CustomEditor(typeof(EnumConfig), true)]
     public class EnumConfigEditor : FizzEditor
     {
-        [MenuItem("CONTEXT/EnumConfig/Generate")]
-        public static void Generate(MenuCommand command)
+        [InitializeOnLoadMethod]
+        private static void Initialize()
         {
-            var enumConfig = command.context as EnumConfig;
-            if (enumConfig == null)
-            {
-                return;
-            }
-
-            var namespaceNode = new NamespaceNode(enumConfig.NamespaceName);
-
-            var enumNode = new EnumNode(enumConfig.EnumName)
-            {
-                Accessibility = enumConfig.EnumAccessibility
-            };
+            var monitor = Assets.Watch<EnumConfig>();
+            monitor.AssetsModifiedProcessorAssetChangedEvent += Generate;
+        }
+        
+        private static void Generate(EnumConfig enumConfig)
+        {
+            var path = $"{Application.dataPath}/{enumConfig.Path}/{enumConfig.EnumName}.cs";
+            var assetsRelativePath = Assets.AbsoluteToAssetsRelativePath(path);
             
-            foreach (var enumValueName in enumConfig.EnumValueNames)
+            try
             {
-                var enumValueNode = new EnumValueNode(enumValueName);
-                enumNode.Add(enumValueNode);
-            }
+                AssetDatabase.StartAssetEditing();
             
-            namespaceNode.Add(enumNode);
-
-            namespaceNode.Generate($"{Application.dataPath}/{enumConfig.Path}/{enumConfig.EnumName}.cs");
+                var namespaceNode = new NamespaceNode(enumConfig.NamespaceName);
+            
+                var enumNode = new EnumNode(enumConfig.EnumName)
+                {
+                    Accessibility = enumConfig.EnumAccessibility
+                };
+            
+                foreach (var enumValueName in enumConfig.EnumValueNames)
+                {
+                    var enumValueNode = new EnumValueNode(enumValueName);
+                    enumNode.Add(enumValueNode);
+                }
+            
+                namespaceNode.Add(enumNode);
+            
+                namespaceNode.Generate(path);
+            
+                var asset = AssetDatabase.LoadMainAssetAtPath(assetsRelativePath);
+                EditorUtility.SetDirty(asset);
+            }
+            finally
+            {
+                AssetDatabase.StopAssetEditing();
+                AssetDatabase.Refresh();
+                AssetDatabase.ImportAsset(assetsRelativePath);
+            }
         }
     }
 }

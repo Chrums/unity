@@ -4,5 +4,6 @@ namespace Fizz6.Input
     {
         Horizontal,
         Vertical,
+        Testing,
     }
 }
