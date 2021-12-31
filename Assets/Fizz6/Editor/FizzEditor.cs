@@ -1,17 +1,15 @@
-﻿using UnityEditor;
-
-namespace Fizz6
+﻿namespace Fizz6.Editor
 {
-    public abstract class FizzEditor : Editor
+    public abstract class FizzEditor : UnityEditor.Editor
     {
         private SerializedObjectEditor _serializedObjectEditor;
         
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             _serializedObjectEditor = new SerializedObjectEditor(serializedObject);
         }
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
             _serializedObjectEditor = null;
         }

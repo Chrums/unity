@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.Experimental;
 
-namespace Fizz6.Utility.Editor
+namespace Fizz6.Editor
 {
     public static class Assets
     {

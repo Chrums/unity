@@ -5,6 +5,7 @@ namespace Fizz6.Actor
 {
     public interface IActor
     {
+        GameObject GameObject { get; }
         void Yield(IBehaviour behaviour);
     }
 
@@ -12,11 +13,12 @@ namespace Fizz6.Actor
     {
         [SerializeReference, Implementation]
         private T[] behaviours;
+
+        public GameObject GameObject => gameObject;
         
-        [SerializeField]
         private T _active;
         
-        private void Awake()
+        private void Start()
         {
             foreach (var behaviour in behaviours)
             {

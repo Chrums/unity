@@ -1,6 +1,6 @@
 ﻿namespace Fizz6.Code
 {
-    public class EnumNode : BlockNodeBase<EnumValueNode>
+    public class EnumNode : BlockNode<EnumValueNode>
     {
         public Accessibility Accessibility { get; set; }
         public string EnumName { get; set; }

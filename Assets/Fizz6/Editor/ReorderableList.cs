@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEditor;
 
-namespace Fizz6
+namespace Fizz6.Editor
 {
     public class ReorderableList
     {

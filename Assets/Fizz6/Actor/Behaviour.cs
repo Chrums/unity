@@ -1,7 +1,10 @@
-﻿namespace Fizz6.Actor
+﻿using UnityEngine;
+
+namespace Fizz6.Actor
 {
     public interface IBehaviour
     {
+        GameObject GameObject { get; }
         void Initialize(IActor actor);
         void Dispose();
         bool Query();
@@ -13,15 +16,17 @@
 
     public abstract class Behaviour : IBehaviour
     {
+        public GameObject GameObject => _actor.GameObject;
+
         private IActor _actor;
 
-        public void Initialize(IActor actor) => _actor = actor;
-        public void Dispose() {}
-        protected void Yield() => _actor.Yield(this);
+        public virtual void Initialize(IActor actor) => _actor = actor;
+        public virtual void Dispose() {}
         public virtual bool Query() => false;
         public virtual bool Yield(IBehaviour behaviour) => false;
         public virtual void Start() {}
         public virtual void Stop() {}
         public virtual void Update() {}
+        protected void Yield() => _actor.Yield(this);
     }
 }

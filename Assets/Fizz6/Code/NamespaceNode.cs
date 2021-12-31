@@ -1,6 +1,6 @@
 ﻿namespace Fizz6.Code
 {
-    public class NamespaceNode : BlockNodeBase
+    public class NamespaceNode : BlockNode
     {
         public string NamespaceName { get; set; }
 

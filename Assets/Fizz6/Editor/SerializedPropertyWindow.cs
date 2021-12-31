@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using Object = UnityEngine.Object;
 
-namespace Fizz6
+namespace Fizz6.Editor
 {
     public class SerializedPropertyWindow : EditorWindow
     {

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Fizz6.Code
 {
-    public abstract class BlockNodeBase<TNode> : Node, IEnumerable where TNode : Node
+    public abstract class BlockNode<TNode> : Node, IEnumerable where TNode : Node
     {
         private const string Indentation = "    ";
         private const string BlockOpen = "{";
@@ -49,11 +49,5 @@ namespace Fizz6.Code
         #endregion
     }
     
-    public abstract class BlockNodeBase : BlockNodeBase<Node> {}
-    
-    public class BlockNode : BlockNodeBase
-    {
-        public string Action { get; set; }
-        protected override string Statement => Action;
-    }
+    public abstract class BlockNode : BlockNode<Node> {}
 }

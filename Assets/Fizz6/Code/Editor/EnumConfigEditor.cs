@@ -1,4 +1,4 @@
-﻿using Fizz6.Utility.Editor;
+﻿using Fizz6.Editor;
 using UnityEditor;
 using UnityEngine;
 

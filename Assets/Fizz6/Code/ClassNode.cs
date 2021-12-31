@@ -1,6 +1,6 @@
 ﻿namespace Fizz6.Code
 {
-    public class ClassNode : BlockNodeBase
+    public class ClassNode : BlockNode
     {
         public Accessibility Accessibility { get; set; }
         public string ClassName { get; set; }

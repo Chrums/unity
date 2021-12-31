@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using Fizz6.Utility;
 using UnityEngine;
 
 namespace Fizz6.Input
 {
     [CreateAssetMenu(fileName = "InputConfig", menuName = "Fizz6/Input/Config", order = 1)]
-    public class InputConfig : ScriptableObject
+    public class InputConfig : SingletonScriptableObject<InputConfig>
     {
         [Serializable]
         public struct Item

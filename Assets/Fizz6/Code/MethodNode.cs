@@ -1,6 +1,6 @@
 ﻿namespace Fizz6.Code
 {
-    public class MethodNode : BlockNodeBase
+    public class MethodNode : BlockNode
     {
         public Accessibility Accessibility { get; set; }
         public string MethodReturnTypeName { get; set; }

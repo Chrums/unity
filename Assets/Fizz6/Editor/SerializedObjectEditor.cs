@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 
-namespace Fizz6
+namespace Fizz6.Editor
 {
     public class SerializedObjectEditor
     {

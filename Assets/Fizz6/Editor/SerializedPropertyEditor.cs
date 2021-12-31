@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEditor;
 
-namespace Fizz6
+namespace Fizz6.Editor
 {
     public class SerializedPropertyEditor
     {

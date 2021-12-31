@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
 
-namespace Fizz6
+namespace Fizz6.Editor
 {
     public static class SerializedPropertyExt
     {

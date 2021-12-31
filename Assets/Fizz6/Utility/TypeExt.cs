@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Fizz6
+namespace Fizz6.Utility
 {
     public static class TypeExt
     {

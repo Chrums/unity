@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEditor;
-using UnityEngine;
 
-namespace Fizz6
+namespace Fizz6.Editor
 {
     public static class SerializedObjectExt
     {
